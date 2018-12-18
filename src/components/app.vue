@@ -141,6 +141,7 @@
     box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
+    padding: 0 15px;
   }
 
   .edit .editInput {
@@ -149,19 +150,6 @@
 
   .checkbox.on::before {
     color: #3bba81;
-  }
-
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity .5s;
-  }
-
-  .fade-enter,
-  .fade-leave-to
-
-  /* .fade-leave-active below version 2.1.8 */
-    {
-    opacity: 0;
   }
 
   a {
