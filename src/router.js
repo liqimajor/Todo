@@ -5,7 +5,7 @@ const all = () => import( /* webpackChunkName: "all" */ "./view/AllTodos.vue");
 const active = () => import( /* webpackChunkName: "active" */ "./view/CurrentTodos.vue");
 const completed = () => import( /* webpackChunkName: "completed" */ "./view/CompletedTodos.vue");
 export default new Router({
-  mode: 'history', //路由的模式
+  // mode: 'history', //路由的模式
   routes: [
     { path: '/list/:type', component: all, props: true},
     { path: '/all', component: all },
