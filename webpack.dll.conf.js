@@ -10,7 +10,7 @@ const vendors = [
 ];
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'src/js'),
     filename: '[name].js',

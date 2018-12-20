@@ -84,11 +84,11 @@ module.exports = {
     new webpack.ProvidePlugin({ // 配置第三方库
       $http: 'axios' // 在.vue文件中可以使用$http发送请求，不用每次都import Axios from 'axios';也不用挂载到vue原型链上
     }),
-    new BundleAnalyzerPlugin(),
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('./manifest.json'),
-    }),
+    // new BundleAnalyzerPlugin(),
+    // new webpack.DllReferencePlugin({
+    //   context: __dirname,
+    //   manifest: require('./manifest.json'),
+    // }),
     new HappyPack({
         //用id来标识 happypack处理那里类文件
       id: 'happyBabel',

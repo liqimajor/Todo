@@ -15,7 +15,8 @@
         this.$store.dispatch('getTodo', str)
       },
       addTodo() {
-        if (this.$store.state.newTodo) {
+        !this.msg  && this.$message.info('请输入内容');
+        if (this.msg) {
           this.$store.dispatch('addTodo');
           this.$store.dispatch('clearTodo');
         }
@@ -53,6 +54,8 @@
     background: rgba(0, 0, 0, 0.003);
     position: relative;
     display: flex;
+    background: #fff;
+    margin-bottom: 15px;
   }
 
   .textInput {

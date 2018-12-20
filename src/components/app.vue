@@ -12,9 +12,9 @@
       Clear completed
       </span>
       <div class="tc">
-        <router-link to="/list/0">All</router-link>
-        <router-link to="/list/1">Active</router-link>
-        <router-link to="/list/2">Completed</router-link>
+        <router-link to="/list/0">All({{$store.state.todos.length}})</router-link>
+        <router-link to="/list/1">Active({{$store.state.todos.length - $store.getters.doneTodosLength}})</router-link>
+        <router-link to="/list/2">Completed({{$store.getters.doneTodosLength}})</router-link>
         <!--         <router-link to="/all">All</router-link>
         <router-link to="/active">Active</router-link>
         <router-link to="/completed">Completed</router-link> -->
@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-  import GetTodo from '../view/GetTodo.vue';
+  // import GetTodo from '../view/GetTodo.vue';
   export default {
     methods: {
       clear() {
@@ -31,7 +31,7 @@
       }
     },
     components: {
-      GetTodo
+      GetTodo: () => import(/* webpackChunkName: "getTodo" */ '../view/GetTodo.vue')
     }
   }
 </script>
@@ -44,6 +44,7 @@
   body {
     width: 100%;
     overflow-x: hidden;
+    background: #f5f5f5;
   }
 
   h1 {
@@ -104,6 +105,8 @@
     line-height: 20px;
     text-align: center;
     cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
   }
 
   .checkbox::before {
