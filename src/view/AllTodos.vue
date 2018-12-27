@@ -3,7 +3,7 @@
     <!-- <h3>Total todos length: ({{ todos.length }})</h3> -->
     <span class="checkbox" :class="{on: allCheck}" @click="completeAll"></span><span v-if="allCheck">反选</span><span v-else>全选</span>
     <ul class="list-group">
-      <li is="todo-item" v-for="(todo, index) in todos" :todo="todo" :key="index">
+      <li is="todo-item" v-for="(todo, index) in todos" :todo="todo" :key="todo.id">
       </li>
     </ul>
   </div>

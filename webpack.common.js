@@ -27,14 +27,14 @@ module.exports = {
         exclude: /node_modules/,
         include: path.resolve(__dirname, 'src')
       },
-      // {
-      //   test: /\.js$/,
-      //   loader: 'babel-loader',
-      //   exclude: file => (
-      //     /node_modules/.test(file) &&
-      //     !/\.vue\.js/.test(file)
-      //   )
-      // },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: file => (
+          /node_modules/.test(file) &&
+          !/\.vue\.js/.test(file)
+        )
+      },
       {
         test: /\.(png|jpe?g|gif|bmp|svg)$/,
         use: [{
@@ -75,7 +75,10 @@ module.exports = {
     extensions: ['.js', '.vue', '.scss'], // import引入文件的时候不用加后缀
     modules: [ // 配置路径别名
       path.resolve('node_modules'), path.resolve(__dirname, 'src/components'), path.resolve(__dirname, 'src/assets')
-    ]
+    ],
+    alias: {
+      '@': path.resolve('src'),
+    }
   },
   plugins: [
     new VueLoaderPlugin(), // vue加载器
@@ -85,10 +88,10 @@ module.exports = {
       $http: 'axios' // 在.vue文件中可以使用$http发送请求，不用每次都import Axios from 'axios';也不用挂载到vue原型链上
     }),
     // new BundleAnalyzerPlugin(),
-    // new webpack.DllReferencePlugin({
-    //   context: __dirname,
-    //   manifest: require('./manifest.json'),
-    // }),
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./manifest.json'),
+    }),
     new HappyPack({
         //用id来标识 happypack处理那里类文件
       id: 'happyBabel',

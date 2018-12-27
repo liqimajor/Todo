@@ -19,7 +19,8 @@ const persistStore = store => {
 const store = new Vuex.Store({
   state: {
     newTodo: '',
-    todos: []
+    todos: [],
+    nextTodoId: 1
   },
   getters: {
     newTodo: state => state.newTodo,
@@ -46,7 +47,8 @@ const store = new Vuex.Store({
     ADD_TODO(state) {
       state.todos.push({
         text: state.newTodo,
-        isCompleted: false
+        isCompleted: false,
+        id: state.nextTodoId++
       })
     },
     EDIT_TODO(state, todo) {
