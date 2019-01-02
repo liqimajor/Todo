@@ -1,4 +1,5 @@
-import Message from './dialog.vue'
+import Message from './dialog.vue';
+console.log(Message);//就是组件的选项对象
 
 const MESSAGE = {
   duration: 3000, // 显示的时间 ms
